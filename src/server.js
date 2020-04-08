@@ -34,8 +34,9 @@ const normalizePort = (val) => {
   
   const port = normalizePort(process.env.PORT || '3000');
   app.set('port', port);
+  
 
-  app.post(`${process.env.CONNECTION_URL}/on-convid-19`, (req, res) => {
+  app.post('/api/v1/on-covid-19', (req, res) => {
     return res.status(200)
     .json({
         status: 'successful',
