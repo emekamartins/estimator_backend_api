@@ -1,0 +1,23 @@
+language: node_js
+node_js: stable
+services:
+- postgresql
+addons:
+  postgresql: '10'
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+deploy:
+  provider: heroku
+  api_key:
+    secure: h3zy6gPOfLucdwAywX1AYR4L3Mt6R7PvuQuTYzIcVPdbnxopaKsNevfZx8m7adwlxiygQQLc5isOlo1AadeVhhv6uFxK1m5ATSOyn57j/WP0GpmYrUxqCwLxqNDBlVDpKm/39C5NCmdcckzFRHiCs9g8gxL+U++XlSAUzab4iufL5xEPGbofMx14Ur9fk8Fl66F8/SyqHZV8pt8b1fCS2y5tRhMQ1TjlXG/peudsxrp4iC6SPqOCPDKYNPhaMZfuR3Y1koWYE+ZLicCfOfgCKiig56GnwvwExOVUbc0+0EhUmURf5ozRB91QaL2BEVXNmxH/ckwWQhyWTlPqH1tb/9dvf5Teud4/u+V9TYIh9pgv+HRdyFg1q6/NpHJ8sRXv/eS94mmLZYyYSMwrcTVO9AesN6A3aYEA21GqaEkezxTZjayIO6uc6Z3UIgU/UP+6A5efQf2nIZZbIqU9QrabjYwEQXNCa2vs5RMaJ0TKvI432pguvzwAt3nLAmF5FLMdXfLDq/KeUPAIcYXb/lFS/Ay5TFITlihtnGiUmB2AS0B1+xIIJCwVQ1EmA4qEgh1cHL2QoQwe8V/wGnlqyZjj+FhCZ+FI1Cwk8ys7wJSCcmAK1Y7Kkq4PAp2PewRj6xDFH0eaqPYOtZB77n59RQzwJgCpjCU784SRMRHXTQ0gcUg=
+  app: estimator-staging
+  on:
+    repo: emekamartins/estimator_backend_api
+  skip_cleanup: true
+install:
+- npm install
+env:
+  global:
+    secure: YZAgiYmCuneUSDE9PyYpP5uPme5gfSZ5YduqYMO61q0AvPiiWbPWKWrLMo4yxQeNNzih/vmES3bhC2GcSBU4fydGDMte8lwUshJBPu/p1EduEqRSZdER3RaA0ggJXuVRhGlqDM6erLihS9HR+iO+kg0TjZuIIaq2ZulV4Hiedk+gtGmY4fmwM8ezOHfqNzmG2ca/TBgUI6ut4bXctW5wLRfR5Jvc7Im3HbUfs+Xa0PEUM7Jg2kFR/Kukx2i2ZuO1oIX2EZKhERTWkBaFFNYQQXF/QtoL8pn07YEF5evuht7HM762IEHExss/iMvABag692o5Q8EI7zhxvhAptkfWu8RUJNYGP7A6vEegshB/H3G5SmFGtFVwiMzVWHI8akdFXMrfCOEBLWAWgHF/EmkPzhsiQsm3+etdQ4DewIthViI2FbWDrMj3BGz/MYuktmCK7wa7UDt7Uy0pteWsAAMBC3i4nxRS5AJY3WArR/bXP4nizGlGGE4RLZi7VMYG9mUJcGpDDP4GlWzBdaLe9OF7S8LR3hG30fOmI3Hv5ctYLL6qtl5Tc5ko51mc3xMTTPq2rQB8wjHz8UcKTFPyZJFez5lDFDwEBINDf5dtkfY6n7CjXta7QpVoShVdq43YMvDb2mSHY5rC84zFe90Rl9K+CKAjUxdZ94Xo372S4HGt8GI=
