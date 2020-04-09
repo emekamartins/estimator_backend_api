@@ -1,0 +1,6 @@
+{"message":"GET /api/v1/on-covid-19 200 1515.292 ms","level":"info"}
+{"message":"GET /api/v1/on-covid-19/xml 200 6.272 ms","level":"info"}
+{"message":"GET /api/v1/on-covid-19 200 227.933 ms","level":"info"}
+{"message":"POST /api/v1/on-covid-19/xml 404 5.038 ms","level":"info"}
+{"message":"GET /api/v1/on-covid-19 200 85.105 ms","level":"info"}
+{"message":"GET /api/v1/on-covid-19/xml 200 4.524 ms","level":"info"}

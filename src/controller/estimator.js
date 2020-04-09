@@ -72,3 +72,7 @@ exports.estimatorXml = async (request, response) => {
     return response.status(500).send(convertedBadRequestError);
   }
 };
+
+exports.logData = (request, response) => {
+
+}
