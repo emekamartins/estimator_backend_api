@@ -9,7 +9,7 @@ const { expect } = chai;
 test('Get estimated covid info for region', async () => {
   const reportedCases = 674;
   const estimateData = await request(app)
-    .get('/api/v1/on-covid-19')
+    .post('/api/v1/on-covid-19')
     .send({
       region: {
         name: 'Africa',
@@ -33,7 +33,7 @@ test('Get estimated covid info for region', async () => {
 
 test('Get estimated covid info for region in XML format', async () => {
   await request(app)
-    .get('/api/v1/on-covid-19/xml')
+    .post('/api/v1/on-covid-19/xml')
     .send({
       region: {
         name: 'Africa',

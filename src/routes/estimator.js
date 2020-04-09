@@ -4,8 +4,8 @@ const router = express.Router();
 const estimatorController = require('../controller/estimator');
 
 
-router.get('/', estimatorController.estimator);
-router.get('/json', estimatorController.estimator);
-router.get('/xml', estimatorController.estimatorXml);
+router.post('/', estimatorController.estimator);
+router.post('/json', estimatorController.estimator);
+router.post('/xml', estimatorController.estimatorXml);
 
 module.exports = router;
