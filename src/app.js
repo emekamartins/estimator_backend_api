@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 const bodyParser = require('body-parser');
@@ -9,6 +10,13 @@ const morgan = require('./middleware/morgan');
 // const morgan = require('morgan');
 // const path = require('path');
 const estimatorRoutes = require('./routes/estimator');
+
+app.use(cors({
+  origin: '*',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+app.options('*', cors());
 
 
 // create a write stream (in append mode)
@@ -21,6 +29,7 @@ app.use(morgan);
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   next();
