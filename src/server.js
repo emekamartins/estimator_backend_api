@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const estimatorController = require('./controller/estimator');
 
 
 app.use(cors({
@@ -25,29 +26,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const normalizePort = (val) => {
-    const port = Number.parseInt(val, 10);
-  
-    if (typeof (port) !== 'number') { return val; }
-    if (port >= 0) { return port; }
-    return false;
-  };
-  
-  const port = normalizePort(process.env.PORT || '3000');
-  app.set('port', port);
-  
+  const port = Number.parseInt(val, 10);
 
-  app.post('/api/v1/on-covid-19', (req, res) => {
-    return res.status(200)
-    .json({
-        status: 'successful',
-        data: {
-            message: 'OK'
-        }
-    })
-  })
+  if (typeof (port) !== 'number') { return val; }
+  if (port >= 0) { return port; }
+  return false;
+};
+
+const port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
 
 
+app.post('/api/v1/on-covid-19', estimatorController.estimator);
+app.post('/api/v1/on-covid-19/json', estimatorController.estimator);
+app.post('/api/v1/on-covid-19/xml', estimatorController.estimatorXml);
 
-  app.listen(port, () => {
-    console.log(`Listening on ${port}`);
-  })
+
+app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Listening on ${port}`);
+});
