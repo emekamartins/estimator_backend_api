@@ -1,10 +1,13 @@
-const winston = require('winston');
+const { createLogger, transports, format } = require('winston');
 
-const logger = winston.createLogger({
-  format: winston.format.json(),
+const logger = createLogger({
+  format: format.combine(
+    format.printf((info) => `${info.message}`),
+  ),
   transports: [
-    new winston.transports.File({
-      filename: './logs/access.log',
+    new transports.File({
+      filename: './src/app.log',
+      json: false,
       maxsize: 5242880,
       maxFiles: 5,
     }),

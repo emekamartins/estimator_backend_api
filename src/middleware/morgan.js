@@ -5,7 +5,9 @@ logger.stream = {
   write: (message) => logger.info(message.substring(0, message.lastIndexOf('\n'))),
 };
 
+const data = ':method \t :url \t :status \t :response-time ms';
+
 module.exports = morgan(
-  ':method :url :status :response-time ms',
+  data,
   { stream: logger.stream },
 );
