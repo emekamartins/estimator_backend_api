@@ -23,10 +23,9 @@ test('Get estimated covid info for region', async () => {
       totalHospitalBeds: 1380614,
     })
     .expect(200);
-  expect(estimateData.body).to.have.property('estimate');
   expect(estimateData.body).to.have.property('data');
-  expect(estimateData.body.estimate).to.have.property('impact');
-  expect(estimateData.body.estimate).to.have.property('severeImpact');
+  expect(estimateData.body).to.have.property('impact');
+  expect(estimateData.body).to.have.property('severeImpact');
 });
 
 test('Get estimated covid info for region in XML format', async () => {

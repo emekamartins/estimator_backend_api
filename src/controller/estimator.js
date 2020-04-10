@@ -23,11 +23,12 @@ exports.estimator = (request, response) => {
       });
     }
 
-    const { data, estimate } = estimatedData;
+    const { data, impact, severeImpact } = estimatedData;
 
     return response.status(200).json({
       data,
-      estimate,
+      impact,
+      severeImpact,
     });
   } catch (error) {
     // eslint-disable-next-line no-console
