@@ -7,7 +7,6 @@ const convertToXml = require('../utils/xmlFunc');
 
 exports.estimator = (request, response) => {
   const estimateData = request.body;
-  console.log(request.body);
   if (!estimateData) {
     return response.status(400).json({
       status: 'error',
@@ -26,8 +25,6 @@ exports.estimator = (request, response) => {
 
     const { data, estimate } = estimatedData;
 
-    console.log(estimate);
-
     return response.status(200).json({
       data,
       estimate,
@@ -44,8 +41,7 @@ exports.estimator = (request, response) => {
 
 exports.estimatorXml = (request, response) => {
   const estimateData = request.body;
-  console.log(request.body);
-  response.set('Content-Type', 'text/xml');
+  response.set('Content-Type', 'application/xml');
   const badRequest = [{
     error: [
       { status: 'error' },
@@ -80,7 +76,7 @@ exports.estimatorXml = (request, response) => {
 };
 
 exports.logMessage = (request, response) => {
-  response.set('Content-Type', 'text/plain');
+  response.set('Content-Type', 'text/html');
   const arr = [];
   const options = {
     limit: 20,

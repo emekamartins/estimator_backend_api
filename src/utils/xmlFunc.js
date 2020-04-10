@@ -53,7 +53,7 @@ const convertToXml = (result) => {
   };
 
 
-  const convertedResult = js2xmlparser.parse('data', xmlResult);
+  const convertedResult = js2xmlparser.parse('response', xmlResult);
 
   return convertedResult;
 };
