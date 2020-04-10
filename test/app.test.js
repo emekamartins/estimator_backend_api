@@ -46,5 +46,5 @@ test('Get estimated covid info for region in XML format', async () => {
       totalHospitalBeds: 1380614,
     })
     .expect(200)
-    .expect('Content-Type', /text\/xml/);
+    .expect('Content-Type', /application\/xml/);
 });
