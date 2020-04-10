@@ -5,7 +5,7 @@ const logger = require('../utils/logger');
 const estimateFunc = require('../utils/estimatorFunc');
 const convertToXml = require('../utils/xmlFunc');
 
-exports.estimator = async (request, response) => {
+exports.estimator = (request, response) => {
   const estimateData = request.body;
   console.log(request.body);
   if (!estimateData) {
@@ -26,6 +26,8 @@ exports.estimator = async (request, response) => {
 
     const { data, estimate } = estimatedData;
 
+    console.log(estimate);
+
     return response.status(200).json({
       data,
       estimate,
@@ -40,7 +42,7 @@ exports.estimator = async (request, response) => {
   }
 };
 
-exports.estimatorXml = async (request, response) => {
+exports.estimatorXml = (request, response) => {
   const estimateData = request.body;
   console.log(request.body);
   response.set('Content-Type', 'text/xml');
