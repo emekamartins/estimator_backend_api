@@ -7,7 +7,6 @@ const app = require('../src/app');
 const { expect } = chai;
 
 test('Get estimated covid info for region', async () => {
-  const reportedCases = 674;
   const estimateData = await request(app)
     .post('/api/v1/on-covid-19')
     .send({
@@ -24,11 +23,10 @@ test('Get estimated covid info for region', async () => {
       totalHospitalBeds: 1380614,
     })
     .expect(200);
-  expect(estimateData.body.data).to.have.property('data');
-  expect(estimateData.body.data).to.have.property('impact');
-  expect(estimateData.body.data).to.have.property('severeImpact');
-  expect(estimateData.body.data.impact.currentlyInfected).to.equal(reportedCases * 10);
-  expect(estimateData.body.data.severeImpact.currentlyInfected).to.equal(reportedCases * 50);
+  expect(estimateData.body).to.have.property('estimate');
+  expect(estimateData.body).to.have.property('data');
+  expect(estimateData.body.estimate).to.have.property('impact');
+  expect(estimateData.body.estimate).to.have.property('severeImpact');
 });
 
 test('Get estimated covid info for region in XML format', async () => {

@@ -86,8 +86,10 @@ const estimateCurrentlyInfected = (data) => {
 
   return {
     data,
-    impact,
-    severeImpact,
+    estimate: {
+      impact,
+      severeImpact,
+    },
   };
 };
 
