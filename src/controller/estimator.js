@@ -7,7 +7,7 @@ const convertToXml = require('../utils/xmlFunc');
 
 exports.estimator = async (request, response) => {
   const estimateData = request.body;
-
+  console.log(request.body);
   if (!estimateData) {
     return response.status(400).json({
       status: 'error',
@@ -42,6 +42,7 @@ exports.estimator = async (request, response) => {
 
 exports.estimatorXml = async (request, response) => {
   const estimateData = request.body;
+  console.log(request.body);
   response.set('Content-Type', 'text/xml');
   const badRequest = [{
     error: [
