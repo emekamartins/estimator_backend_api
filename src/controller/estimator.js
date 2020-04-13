@@ -79,10 +79,11 @@ exports.estimatorXml = (request, response) => {
 
 // const appRoot = path.dirname(require.main.filename);
 exports.logMessage = (request, response) => {
-  response.set('Content-Type', 'text/plain; charset=utf-8');
+  response.set('Content-Type', 'text/plain; charset=utf8');
+  // const testing = /^GET|POST\s+\/api\/v1\/on-covid-19\/json|\/xml|\/logs?\s+\d{3}\s+\d{2,}ms$/gm;
+  // eslint-disable-next-line no-tabs
   const options = {
     from: new Date(),
-    limit: 20,
     start: 0,
     order: 'desc',
     fields: ['message'],

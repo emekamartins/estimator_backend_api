@@ -7,21 +7,22 @@ morgan.token('time', (req, res) => {
   const diff = process.hrtime(req._startAt);
   let ms = diff[0] * 1e3 + diff[1] * 1e-6;
 
-  ms = ms.toFixed(3);
+  // ms = ms.toFixed(3);
+  ms = Math.trunc(`${ms}`);
 
-  if (+ms < 10) {
+  if (ms < 10) {
     ms = `0${ms}`;
   }
   // const timeLength = 8; // length of final string
   // format result:
-  return (`${ms}`);
+  return (`${ms}ms`);
 });
 
 logger.stream = {
   write: (message) => logger.info(message.substring(0, message.lastIndexOf('\n'))),
 };
 
-const data = ':method \t :url \t :status \t :time ms';
+const data = ':method \t :url \t :status \t :time';
 
 module.exports = morgan(
   data,
