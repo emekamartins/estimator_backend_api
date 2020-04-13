@@ -1,6 +1,9 @@
-const { createLogger, transports } = require('winston');
+const { createLogger, transports, format } = require('winston');
 
 const logger = createLogger({
+  format: format.combine(
+    format.printf((info) => `${info.message}`),
+  ),
   transports: [
     new transports.File({
       filename: './src/app.log',

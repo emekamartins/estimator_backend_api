@@ -9,11 +9,14 @@ morgan.token('time', (req, res) => {
 
   // ms = ms.toFixed(3);
 
-  if (+ms < 10) {
-    ms = `0${ms}`;
-  }
   // const timeLength = 8; // length of final string
   // format result:
+  ms = Math.trunc((`${ms}`));
+
+  if (ms < 10) {
+    ms = `0${ms}`;
+  }
+
   return (`${ms}`);
 });
 
