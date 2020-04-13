@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 const XML = require('xml');
-// const logger = require('../utils/logger');
 const path = require('path');
+// const logger = require('../utils/logger');
 const estimateFunc = require('../utils/estimatorFunc');
 const convertToXml = require('../utils/xmlFunc');
 
@@ -78,4 +78,28 @@ exports.estimatorXml = (request, response) => {
 };
 
 const appRoot = path.dirname(require.main.filename);
-exports.logMessage = (request, response) => response.status(200).sendFile(`${appRoot}/app.log`);
+exports.logMessage = (request, response) => response.sendFile(`${appRoot}/app.log`);
+// exports.logMessage = (request, response) => {
+//   const options = {
+//     from: new Date(),
+//     limit: 10,
+//     start: 0,
+//     order: 'desc',
+//     fields: ['message'],
+//   };
+
+//   logger.query(options, (err, results) => {
+//     if (err) {
+//       throw err;
+//     }
+
+//     console.log(results.file);
+//     const arr = [];
+//     results.file.forEach((result) => {
+//       arr.push(result.message);
+//     });
+
+//     const string = arr.join('\n ');
+//     response.status(200).send(string);
+//   });
+// };

@@ -7,8 +7,8 @@ const logger = createLogger({
   transports: [
     new transports.File({
       filename: './src/app.log',
-      json: false,
       maxsize: 5242880,
+      json: false,
       maxFiles: 5,
     }),
   ],
