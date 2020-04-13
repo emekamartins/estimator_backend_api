@@ -79,7 +79,7 @@ exports.estimatorXml = (request, response) => {
 
 // const appRoot = path.dirname(require.main.filename);
 exports.logMessage = (request, response) => {
-  response.set('Content-Type', 'text/plain');
+  response.set('Content-Type', 'text/plain; charset=utf-8');
   const options = {
     from: new Date(),
     limit: 20,

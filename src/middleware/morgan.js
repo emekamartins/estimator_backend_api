@@ -7,16 +7,13 @@ morgan.token('time', (req, res) => {
   const diff = process.hrtime(req._startAt);
   let ms = diff[0] * 1e3 + diff[1] * 1e-6;
 
-  // ms = ms.toFixed(3);
+  ms = ms.toFixed(3);
 
-  // const timeLength = 8; // length of final string
-  // format result:
-  ms = Math.trunc((`${ms}`));
-
-  if (ms < 10) {
+  if (+ms < 10) {
     ms = `0${ms}`;
   }
-
+  // const timeLength = 8; // length of final string
+  // format result:
   return (`${ms}`);
 });
 
